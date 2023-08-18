@@ -18,15 +18,15 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
   end
 
-  # it "Recent post method" do
-  #   user.posts.new(title: "The first post", text: "the text")
-  #   user.posts.new(title: "The second post", text: "the text")
-  #   user.posts.new(title: "The third post", text: "the text")
-  #   user.posts.new(title: "The fourth post", text: "the text")
-  #   user.posts.new(title: "The fifth post", text: "the text")
-  #   expect(user.recent_post[0].title).to eq('The fifth post')
-  #   expect(user.recent_post[1].title).to eq('The fourth post')
-  #   expect(user.recent_post[2].title).to eq('The third post')
-  #   expect(user.recent_post.length).to eq(3)
-  # end
+  it "Recent post method" do
+    user.posts.new(title: "The first post", text: "the text")
+    user.posts.new(title: "The second post", text: "the text")
+    user.posts.new(title: "The third post", text: "the text")
+    user.posts.new(title: "The fourth post", text: "the text")
+    user.posts.new(title: "The fifth post", text: "the text")
+    expect(user.recent_post[0].title).to eq('The fifth post')
+    expect(user.recent_post[1].title).to eq('The fourth post')
+    expect(user.recent_post[2].title).to eq('The third post')
+    expect(user.recent_post.length).to eq(3)
+  end
 end
