@@ -20,4 +20,18 @@ RSpec.describe Post, type: :model do
     post.likes_count = -1
     expect(post).not_to be_valid
   end
+
+  it 'Recent_comments should return the 5 latest comments' do
+    post.comments.new(author: user, text: "comment1", post: post)
+    post.comments.new(author: user, text: "comment2", post: post)
+    post.comments.new(author: user, text: "comment3", post: post)
+    post.comments.new(author: user, text: "comment4", post: post)
+    post.comments.new(author: user, text: "comment5", post: post)
+    post.comments.new(author: user, text: "comment6", post: post)
+    post.comments.new(author: user, text: "comment7", post: post)
+    comments = post.recent_comments.map do |comment|
+      comment.text
+    end
+    expect(comments).to eq(['comment7', 'comment6', 'comment5', 'comment4', 'comment3'])
+  end
 end
