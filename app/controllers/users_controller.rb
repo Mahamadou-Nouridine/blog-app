@@ -10,4 +10,8 @@ class UsersController < ApplicationController
   def posts
 
   end
+
+  def post_info
+
+  end
 end

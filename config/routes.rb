@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "users#index"
   get "/users/:id", to: "users#user_info"
   get "/users/:id/posts", to: "users#posts"
+  get "/users/:id/posts/:post_id", to: "users#post_info"
 end
