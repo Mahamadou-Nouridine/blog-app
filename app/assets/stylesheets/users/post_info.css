@@ -1,0 +1,28 @@
+
+.pos > .post-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: solid black 2px;
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.post-info > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.likes-comments {
+  font-size: small;
+}
+
+.comments {
+  width: 100%;
+  border: solid black 2px;
+  padding: 10px;
+}
+
+.commens-list {
+  list-style-type: none;
+}
