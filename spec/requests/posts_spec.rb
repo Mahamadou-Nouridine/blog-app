@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Posts", type: :request do
-  describe "GET /index" do
+  describe "GET /index and /show" do
     it 'get the root page' do
       get '/users/12/posts'
       expect(response).to have_rendered("index")
