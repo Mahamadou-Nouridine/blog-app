@@ -31,7 +31,7 @@
             </div>
             <div class="comments">
                 <ul class="commens-list">
-                <%post.comments.each do |comment|%>
+                <%post.recent_comments.each do |comment|%>
                     <li>
                         <p><%="#{comment.author.name}: #{comment.text}"%></p>
                     </li>
