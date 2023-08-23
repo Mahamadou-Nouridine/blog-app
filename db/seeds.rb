@@ -15,3 +15,31 @@
 # post = Post.create(title: "Rails seeding guide", text: "rails seeding guide description", author_id: users[0].id)
 # users[1].likes.create(post_id: post.id)
 # users[1].comments.create(post_id: post.id, text: "I like this article")
+require 'faker'
+
+10.times do
+  User.create(
+    name: Faker::Name.name,
+    photo: Faker::Avatar.image,
+    bio: Faker::Lorem.paragraph(sentence_count: 2),
+    posts_count: 0
+  )
+end
+
+50.times do
+  Post.create(
+    title: Faker::Lorem.sentence(word_count: 3),
+    text: Faker::Lorem.paragraph(sentence_count: 2),
+    author_id: User.all.sample.id,
+    likes_count: 0,
+    comments_count: 0
+  )
+end
+
+100.times do
+  Comment.create(
+    text: Faker::Lorem.paragraph(sentence_count: 2),
+    author_id: User.all.sample.id,
+    post_id: Post.all.sample.id
+  )
+end
