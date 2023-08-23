@@ -31,21 +31,11 @@
             </div>
             <div class="comments">
                 <ul class="commens-list">
+                <%post.comments.each do |comment|%>
                     <li>
-                        <p>Username: comment1</p>
+                        <p><%="#{comment.author.name}: #{comment.text}"%></p>
                     </li>
-                    <li>
-                        <p>Username: comment2</p>
-                    </li>
-                    <li>
-                        <p>Username: comment3</p>
-                    </li>
-                    <li>
-                        <p>Username: comment4</p>
-                    </li>
-                    <li>
-                        <p>Username: comment5</p>
-                    </li>
+                  <%end%>
                 </ul>
             </div>
           </li>
