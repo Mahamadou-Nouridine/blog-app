@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
-  describe "GET /index and /show" do
+RSpec.describe 'Users', type: :request do
+  describe 'GET /index and /show' do
     it 'Get users list page' do
       get '/'
       expect(response).to have_http_status(:success)
