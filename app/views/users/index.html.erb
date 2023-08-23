@@ -14,8 +14,6 @@
            <%@users.each do |user|%>
              <li>
                  <%=image_tag(user.photo, class: 'profile-photo')%>
-                 <%# <p>photo</p>
-                 </div> %>
 
                  <div class="user-details">
             <%= link_to "/users/#{user.id}" do %>
