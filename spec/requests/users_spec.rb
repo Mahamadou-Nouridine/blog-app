@@ -5,11 +5,13 @@ RSpec.describe 'Users', type: :request do
     it 'Get users list page' do
       get '/'
       expect(response).to have_http_status(:success)
+      expect(response.body).to include "User Name"
       expect(response).to have_rendered('index')
     end
     it 'Get user info' do
       get '/users/12'
       expect(response).to have_http_status(:success)
+      expect(response.body).to include "See all posts"
       expect(response).to have_rendered('show')
     end
   end
