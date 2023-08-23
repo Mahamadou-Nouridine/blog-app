@@ -20,36 +20,11 @@
           </div>
           <div class="comments">
               <ul class="commens-list">
-                  <li>
-                      <p>Username: comment1</p>
-                  </li>
-                  <li>
-                      <p>Username: comment2</p>
-                  </li>
-                  <li>
-                      <p>Username: comment3</p>
-                  </li>
-                  <li>
-                      <p>Username: comment4</p>
-                  </li>
-                  <li>
-                      <p>Username: comment5</p>
-                  </li>
-                  <li>
-                      <p>Username: comment6</p>
-                  </li>
-                  <li>
-                      <p>Username: comment7</p>
-                  </li>
-                  <li>
-                      <p>Username: comment8</p>
-                  </li>
-                  <li>
-                      <p>Username: comment9</p>
-                  </li>
-                  <li>
-                      <p>Username: comment10</p>
-                  </li>
+                <%@post.comments.each do |comment|%>
+                    <li>
+                        <p><%="#{comment.author.name}: #{comment.text}"%></p>
+                    </li>
+                <%end%>
               </ul>
           </div>
         </div>
