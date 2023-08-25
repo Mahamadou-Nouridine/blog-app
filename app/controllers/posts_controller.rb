@@ -8,10 +8,4 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     render 'show'
   end
-
-  def new
-    @user = current_user
-    puts params
-    render 'new'
-  end
 end
