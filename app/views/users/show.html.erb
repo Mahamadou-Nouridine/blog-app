@@ -34,7 +34,7 @@
           <%end%>
           <%="#{@user.name} has no any post" unless !@user.posts.empty?%>
         </ul>
-        <%=button_to "See all posts", "/users/#{@user.id}/posts", class: 'all-posts', method: 'get'%>
+        <%=button_to "See all posts", "/users/#{@user.id}/posts", class: 'all-posts', method: :get%>
     </div>
   </body>
 </html>
