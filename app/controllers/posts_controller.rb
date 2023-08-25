@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     # post.comments_count = 0
     # post.likes_count = 0
     # post.save
-    redirect_to "/users/#{user.id}/posts", notice: "new post created successfully"
+    redirect_to "/users/#{user.id}/posts", notice: 'new post created successfully'
     # if post.save
     # else
     #   render 'new'
