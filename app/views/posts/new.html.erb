@@ -8,8 +8,6 @@
 
   <body>
     <div class="container">
-
-
           <%= form_with model: @post, url: user_posts_path(@user), method: :post, class: "comments_form" do |f| %>
             <div>
                 <%= f.label :title %>

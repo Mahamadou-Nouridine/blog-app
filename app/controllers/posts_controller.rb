@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.where(author_id: params[:user_id])
-    render 'index'
+    @user = Post.find(params[:user_id])
+    if @posts.empty?
+      redirect_to "/users/#{params[:user_id]}/posts/new"
+    else
+      render 'index'
+    end
   end
 
   def show
@@ -15,8 +20,14 @@ class PostsController < ApplicationController
   end
 
   def create
+
     user = current_user
-    Post.create(title: params[:title], text: params[:text], author_id: user.id)
-    redirect_to "/users/#{user.id}/posts", notice: 'new post created successfully'
+    puts user
+    post = Post.new(title: params[:title], text: params[:text], author_id: user.id, comments_count: 0, likes_count: 0)
+    if post.save
+      redirect_to "/users/#{user.id}/posts", notice: 'new post created successfully'
+    else
+      render 'new'
+    end
   end
 end
