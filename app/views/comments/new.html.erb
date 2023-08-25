@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= stylesheet_link_tag "/users/posts.css" %>
+  </head>
+
+  <body>
+    <div class="container">
+
+
+          <%= form_with model: @comment, url: user_post_comments_path, method: :post, scope: :comment, class: "comments_form" do |f| %>
+            <%= f.text_field :text, place_holder: "Enter the comment text" %>
+            <%= f.submit "Create" %>
+          <% end %>
+
+    </div>
+  </body>
+</html>

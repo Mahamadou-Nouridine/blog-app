@@ -6,6 +6,7 @@
   border: solid black 2px;
   padding: 10px;
   margin-bottom: 2px;
+  position: relative;
 }
 
 .post-info > div {
@@ -25,4 +26,10 @@
 
 .commens-list {
   list-style-type: none;
+}
+
+.like_button {
+  position: absolute;
+  bottom: 15px;
+  right: 5px;
 }

@@ -41,7 +41,9 @@
           </li>
           <%end%>
         </ul>
-        <button class="all-posts">Pagination</button>
+        <%=link_to "/users/#{@user.id}/posts/new" do%>
+          <%=button_to "New post", class: 'all-posts'%>
+        <%end%>
     </div>
   </body>
 </html>
