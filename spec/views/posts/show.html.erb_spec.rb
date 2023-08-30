@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Post', type: :system do
   describe 'show page' do
     before(:each) do
-      @user = User.create(name: 'Max', bio: 'Full-stack developer', photo: 'http://localhost/123', post_counter: 3)
-      @post_one = Post.create(title: 'Post1', text: 'Post text1', author_id: @user.id, comments_counter: 0,
-                              likes_counter: 0)
-      @post_two = Post.create(title: 'Post2', text: 'Post text2', author_id: @user.id, comments_counter: 0,
-                              likes_counter: 0)
-      Post.create(title: 'Post3', text: 'Post text3', author_id: @user.id, comments_counter: 0, likes_counter: 0)
+      @user = User.create(name: 'Max', bio: 'Full-stack developer', photo: 'http://localhost/123', posts_count: 3)
+      @post_one = Post.create(title: 'Post1', text: 'Post text1', author_id: @user.id, comments_count: 0,
+                              likes_count: 0)
+      @post_two = Post.create(title: 'Post2', text: 'Post text2', author_id: @user.id, comments_count: 0,
+                              likes_count: 0)
+      Post.create(title: 'Post3', text: 'Post text3', author_id: @user.id, comments_count: 0, likes_count: 0)
       Comment.create(text: 'Comment1', author_id: @user.id, post_id: @post_one.id)
       Comment.create(text: 'Comment2', author_id: @user.id, post_id: @post_one.id)
       Comment.create(text: 'Comment3', author_id: @user.id, post_id: @post_two.id)

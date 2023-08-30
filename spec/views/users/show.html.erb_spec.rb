@@ -6,14 +6,14 @@ RSpec.describe 'User show page', type: :system do
       name: 'Max',
       bio: 'Full-stack developer',
       photo: 'https://placehold.co/200x200',
-      post_counter: 0
+      posts_count: 0
     )
 
     @user_two = User.create(
       name: 'Jim',
       bio: 'Hiring Manager',
       photo: 'https://placehold.co/190x190',
-      post_counter: 0
+      posts_count: 0
     )
 
     @post_one = @user_one.posts.create(title: 'Post 1', text: 'Lorem ipsum')
