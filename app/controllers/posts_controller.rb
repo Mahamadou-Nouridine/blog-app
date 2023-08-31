@@ -20,7 +20,6 @@ class PostsController < ApplicationController
   end
 
   def create
-
     user = current_user
     puts user
     post = Post.new(title: params[:title], text: params[:text], author_id: user.id, comments_count: 0, likes_count: 0)
