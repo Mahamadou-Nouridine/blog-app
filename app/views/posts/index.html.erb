@@ -9,19 +9,19 @@
   <body>
     <div class="container">
         <div class="user-info">
-            <%=image_tag(@posts[0].author.photo, class: 'profile-photo')%>
+            <%=image_tag(@user.photo, class: 'profile-photo')%>
 
             <div class="user-details">
-                <h3><%=@posts[0].author.name%></h3>
-                <p>Number of post: <%=@posts.count%></p>
+                <h3><%=@user.name%></h3>
+                <p>Number of post: <%=@user.posts.count%></p>
             </div>
         </div>
 
         <ul class="posts">
-          <%@posts.each do |post|%>
+          <%@user.posts.each do |post|%>
           <li class="post">
             <div>
-              <%= link_to "/users/#{post.author.id}/posts/#{post.id}" do %>
+              <%= link_to "/users/#{@user.id}/posts/#{post.id}" do %>
               <h3><%=post.title%></h3>
             <%end%>
               <p>
