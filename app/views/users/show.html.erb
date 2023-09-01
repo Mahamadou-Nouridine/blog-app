@@ -9,7 +9,7 @@
   <body>
     <div class="container">
         <div class="user-info">
-            <%=image_tag(@user.photo, class: 'profile-photo')%>
+            <%=image_tag(@user.photo, class: 'profile-photo') unless @user.photo.nil?%>
 
             <div class="user-details">
                 <h3><%=@user.name%></h3>
