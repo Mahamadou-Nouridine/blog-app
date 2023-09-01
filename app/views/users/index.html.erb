@@ -16,7 +16,7 @@
                  <%=image_tag(user.photo, class: 'profile-photo')%>
 
                  <div class="user-details">
-            <%= link_to "/users/#{user.id}" do %>
+            <%= link_to "/users/#{user.id}", id: "link-to-#{user.name}" do %>
                      <h3><%=user.name%></h3>
             <%end%>
                      <p>Number of post: <%=user.posts.count%></p>

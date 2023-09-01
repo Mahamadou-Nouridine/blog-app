@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(author_id: params[:user_id])
-    @user = Post.find(params[:user_id])
-    if @posts.empty?
+    @user = User.includes(posts: [:comments]).find(params[:user_id])
+    if @user.posts.empty?
       redirect_to "/users/#{params[:user_id]}/posts/new"
     else
       render 'index'
@@ -20,7 +19,6 @@ class PostsController < ApplicationController
   end
 
   def create
-
     user = current_user
     puts user
     post = Post.new(title: params[:title], text: params[:text], author_id: user.id, comments_count: 0, likes_count: 0)
