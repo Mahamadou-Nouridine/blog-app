@@ -5,41 +5,54 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
-# user1 = User.create(name: "Nouridine", photo: "https://avatars.githubusercontent.com/u/98597449?v=4", bio: "Rails developer")
-# user2 = User.create(name: "Mahamadou", photo: "https://avatars.githubusercontent.com/u/98597449?v=4", bio: "MERN developer")
-#  users = User.all
-
-
-
-# post = Post.create(title: "Rails seeding guide", text: "rails seeding guide description", author_id: users[0].id)
-# users[1].likes.create(post_id: post.id)
-# users[1].comments.create(post_id: post.id, text: "I like this article")
+#
 require 'faker'
 
-10.times do
-  User.create(
-    name: Faker::Name.name,
+Like.destroy_all
+Comment.destroy_all
+Post.destroy_all
+User.destroy_all
+
+quantity_users = 10
+quantity_posts = 10
+quantity_comments = 10
+quantity_likes = 20
+users = []
+
+for user_position in 1..quantity_users do
+  temp_user = User.create!(
+    name: "User Number #{user_position}",
     photo: Faker::Avatar.image,
-    bio: Faker::Lorem.paragraph(sentence_count: 2),
-    posts_count: 0
+    bio: Faker::Lorem.sentences(number: 12 + Random.rand(20)).join(' '),
+    posts_count: 0,
+    email: "email#{user_position}@email.com",
+    password: "abcdef"
   )
+  # temp_user.skip_confirmation!
+  # temp_user.save!
+  users << temp_user
 end
 
-50.times do
-  Post.create(
-    title: Faker::Lorem.sentence(word_count: 3),
-    text: Faker::Lorem.paragraph(sentence_count: 2),
-    author_id: User.all.sample.id,
-    likes_count: 0,
-    comments_count: 0
-  )
+for user_position in 0..(quantity_users - 1) do
+  for post_position in 0..Random.rand(quantity_posts) do
+    temp_post = Post.create!(
+      author: users[user_position],
+      title: "Post ##{post_position + 1}",
+      text: Faker::Lorem.sentences(number: 40 + Random.rand(100)).join(' '),
+      likes_count:0,
+      comments_count: 0
+    )
+    for comment_position in 0..Random.rand(quantity_comments) do
+      position = Random.rand(quantity_users)
+      Comment.create!(post: temp_post, author: users[Random.rand(quantity_users)], text: Faker::Lorem.sentences(number: 12 + Random.rand(20)).join(' '))
+    end
+    for like in 1..Random.rand(quantity_likes) do
+      Like.create!(post: temp_post, author: users[Random.rand(quantity_users)])
+    end
+  end
 end
 
-100.times do
-  Comment.create(
-    text: Faker::Lorem.paragraph(sentence_count: 2),
-    author_id: User.all.sample.id,
-    post_id: Post.all.sample.id
-  )
-end
+puts "Created #{User.count} users"
+puts "Created #{Post.count} posts"
+puts "Created #{Comment.count} comments"
+puts "Assigned #{Like.count} likes, randomly"

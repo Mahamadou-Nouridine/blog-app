@@ -18,3 +18,30 @@
   margin: auto;
   width: 220px;
 }
+
+.login_form {
+  /* background-color: red;
+   */
+  width: 200px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.login_form form {
+  margin: auto;
+  width: 200px;
+}
+
+.field input {
+  margin: auto;
+  width: 100%;
+}
+
+.remember input {
+  width: 10%;
+}
+
+.login_form form .actions input {
+  margin: auto;
+  width: 100%;
+}

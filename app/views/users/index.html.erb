@@ -13,7 +13,7 @@
         <ul class="user-list">
            <%@users.each do |user|%>
              <li>
-                 <%=image_tag(user.photo, class: 'profile-photo')%>
+                 <%=image_tag(user.photo, class: 'profile-photo') unless user.photo.nil?%>
 
                  <div class="user-details">
             <%= link_to "/users/#{user.id}", id: "link-to-#{user.name}" do %>
